@@ -1,0 +1,33 @@
+/* app/globals.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply font-inter text-slate-700 bg-slate-50;
+  }
+}
+
+@layer components {
+  .nav-link {
+    @apply relative transition-colors;
+  }
+  .nav-link::after {
+    content: "";
+    @apply absolute bottom-[-4px] left-1/2 -translate-x-1/2 w-0 h-[2px] bg-sky-500 transition-all duration-300;
+  }
+  .nav-link:hover::after,
+  .nav-link.active::after {
+    @apply w-full;
+  }
+  .timeline-item-content {
+    @apply max-h-0 opacity-0 overflow-hidden transition-all duration-500 ease-in-out;
+  }
+  .timeline-item-content.open {
+    @apply max-h-[500px] opacity-100; /* Adjust max-height as needed */
+  }
+}
