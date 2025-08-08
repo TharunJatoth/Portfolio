@@ -12,8 +12,15 @@ import {
   TrendingUp,
 } from "lucide-react";
 
+type Skill = {
+  name: string;
+  level: number;
+  description: string;
+};
+
 const Skills = () => {
-  const [activeCategory, setActiveCategory] = useState("Frontend");
+  const [activeCategory, setActiveCategory] =
+    useState<keyof typeof skillCategories>("Frontend");
 
   const skillCategories = {
     Frontend: {
@@ -96,8 +103,16 @@ const Skills = () => {
           level: 90,
           description: "Relational database management",
         },
-        { name: "PostgreSQL", level: 85, description: "Advanced SQL database" },
-        { name: "MongoDB", level: 80, description: "NoSQL document database" },
+        {
+          name: "PostgreSQL",
+          level: 85,
+          description: "Advanced SQL database",
+        },
+        {
+          name: "MongoDB",
+          level: 80,
+          description: "NoSQL document database",
+        },
         {
           name: "Redis",
           level: 75,
@@ -121,7 +136,11 @@ const Skills = () => {
       bgColor: "from-green-50 to-green-100",
       skills: [
         { name: "AWS", level: 80, description: "Cloud services & deployment" },
-        { name: "Azure", level: 75, description: "Microsoft cloud platform" },
+        {
+          name: "Azure",
+          level: 75,
+          description: "Microsoft cloud platform",
+        },
         {
           name: "Docker",
           level: 85,
@@ -146,8 +165,8 @@ const Skills = () => {
     },
   };
 
-  const getSkillIcon = (skillName) => {
-    const icons = {
+  const getSkillIcon = (skillName: string): string => {
+    const icons: Record<string, string> = {
       React: "⚛️",
       "Next.js": "🔺",
       TypeScript: "🔷",
@@ -163,7 +182,7 @@ const Skills = () => {
     return icons[skillName] || "💻";
   };
 
-  const SkillBar = ({ skill }) => (
+  const SkillBar = ({ skill }: { skill: Skill }) => (
     <div className="group">
       <div className="flex items-center justify-between mb-2">
         <div className="flex items-center">
@@ -179,10 +198,9 @@ const Skills = () => {
       </div>
       <div className="w-full bg-gray-200 rounded-full h-2.5 mb-4 overflow-hidden">
         <div
-          className="bg-gradient-to-r from-blue-500 to-purple-500 h-2.5 rounded-full transition-all duration-1000 ease-out transform origin-left"
+          className="bg-gradient-to-r from-blue-500 to-purple-500 h-2.5 rounded-full animate-[fillBar_1.5s_ease-out_forwards]"
           style={{
             width: `${skill.level}%`,
-            animation: "fillBar 1.5s ease-out forwards",
           }}
         ></div>
       </div>
@@ -216,7 +234,12 @@ const Skills = () => {
 
         {/* Skills Overview Cards */}
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-          {Object.entries(skillCategories).map(([category, data]) => {
+          {(
+            Object.entries(skillCategories) as [
+              keyof typeof skillCategories,
+              (typeof skillCategories)[keyof typeof skillCategories]
+            ][]
+          ).map(([category, data]) => {
             const Icon = data.icon;
             const isActive = activeCategory === category;
 
@@ -250,7 +273,7 @@ const Skills = () => {
                   {category}
                 </h3>
                 <p className="text-sm text-gray-500">
-                  {skillCategories[category].skills.length} skills
+                  {data.skills.length} skills
                 </p>
               </button>
             );
@@ -283,7 +306,6 @@ const Skills = () => {
               <div
                 key={skill.name}
                 className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300"
-                style={{ animationDelay: `${index * 100}ms` }}
               >
                 <SkillBar skill={skill} />
               </div>
@@ -331,12 +353,13 @@ const Skills = () => {
         </div>
       </div>
 
+      {/* Custom Keyframe Animation */}
       <style jsx>{`
         @keyframes fillBar {
-          from {
+          0% {
             transform: scaleX(0);
           }
-          to {
+          100% {
             transform: scaleX(1);
           }
         }

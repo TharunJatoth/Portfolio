@@ -1,11 +1,9 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import {
-  ExternalLink,
-  Github,
-  Calendar,
   Briefcase,
+  Calendar,
   User,
   Building,
   Code,
@@ -13,11 +11,20 @@ import {
   Star,
 } from "lucide-react";
 
-const Projects = () => {
-  const [hoveredProject, setHoveredProject] = useState(null);
+// Define project type for TypeScript
+type Project = {
+  title: string;
+  client: string;
+  role: string;
+  category: string;
+  tech: string[];
+  details: string[];
+  status: string;
+  duration: string;
+};
 
-  // Replace this with your actual projectsData import
-  const projectsData = [
+const Projects = () => {
+  const projectsData: Project[] = [
     {
       title: "E-Commerce Platform",
       client: "Tech Solutions Inc",
@@ -49,7 +56,6 @@ const Projects = () => {
       status: "Completed",
       duration: "1 month",
     },
-
     {
       title: "Hospital Information Management System",
       client: "Healthcare Solutions Inc.",
@@ -73,7 +79,6 @@ const Projects = () => {
       status: "Completed",
       duration: "6 months",
     },
-
     {
       title: "Interior Design Platform Integration",
       client: "PerSft",
@@ -92,18 +97,21 @@ const Projects = () => {
     },
   ];
 
-  const getStatusColor = (status) => {
+  const getStatusColor = (status: string): string => {
     return status === "Completed"
       ? "text-green-600 bg-green-100"
       : "text-blue-600 bg-blue-100";
   };
 
-  const getCategoryIcon = (category) => {
-    const icons = {
+  const getCategoryIcon = (category: string): React.ElementType => {
+    const icons: Record<string, React.ElementType> = {
       "Web Application": Code,
       "Enterprise Application": Building,
       "Data Visualization": Star,
       "Mobile Application": Briefcase,
+      "Healthcare Platform": Briefcase,
+      "Interior Design": Building,
+      "Marketing / SEO": Briefcase,
     };
     return icons[category] || Code;
   };
@@ -113,7 +121,7 @@ const Projects = () => {
       id="projects"
       className="py-20 bg-gradient-to-br from-gray-50 to-blue-50 relative overflow-hidden"
     >
-      {/* Background Decorations */}
+      {/* Decorative Background Blobs */}
       <div className="absolute top-0 left-0 w-96 h-96 bg-gradient-to-br from-purple-100 to-pink-100 rounded-full -translate-y-48 -translate-x-48 opacity-30"></div>
       <div className="absolute bottom-0 right-0 w-96 h-96 bg-gradient-to-tl from-blue-100 to-indigo-100 rounded-full translate-y-48 translate-x-48 opacity-30"></div>
 
@@ -132,7 +140,7 @@ const Projects = () => {
           <div className="w-24 h-1 bg-gradient-to-r from-purple-600 to-pink-600 mx-auto mb-8"></div>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             A showcase of successful projects demonstrating technical expertise
-            and problem-solving capabilities
+            and problem-solving capabilities.
           </p>
         </div>
 
@@ -144,8 +152,6 @@ const Projects = () => {
               <div
                 key={index}
                 className="group bg-white rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-gray-100"
-                onMouseEnter={() => setHoveredProject(index)}
-                onMouseLeave={() => setHoveredProject(null)}
               >
                 {/* Project Header */}
                 <div className="flex items-start justify-between mb-6">
@@ -197,7 +203,7 @@ const Projects = () => {
                   </div>
                 </div>
 
-                {/* Technology Stack */}
+                {/* Tech Stack */}
                 <div className="mb-6">
                   <h4 className="text-sm font-semibold text-gray-700 mb-3">
                     Technology Stack
@@ -214,7 +220,7 @@ const Projects = () => {
                   </div>
                 </div>
 
-                {/* Project Details */}
+                {/* Details */}
                 <div className="space-y-3">
                   {project.details.map((detail, detailIndex) => (
                     <div key={detailIndex} className="flex items-start">
@@ -229,10 +235,8 @@ const Projects = () => {
                   ))}
                 </div>
 
-                {/* Hover Effect Indicator */}
-                <div
-                  className={`mt-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300`}
-                >
+                {/* Decorative Line on Hover */}
+                <div className="mt-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <div className="h-1 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
                 </div>
               </div>

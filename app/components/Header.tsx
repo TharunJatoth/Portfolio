@@ -22,7 +22,7 @@ const Header = () => {
 
       let currentSection = "";
       navItems.forEach((item) => {
-        const section = document.querySelector(item.href);
+        const section = document.querySelector(item.href) as HTMLElement;
         if (section && window.scrollY >= section.offsetTop - 100) {
           currentSection = item.href;
         }
@@ -35,7 +35,7 @@ const Header = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const scrollToSection = (href) => {
+  const scrollToSection = (href: string) => {
     const element = document.querySelector(href);
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });

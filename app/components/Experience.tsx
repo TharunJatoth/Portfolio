@@ -44,11 +44,10 @@ const newExperienceData = [
 ];
 
 const Experience = () => {
-  const [expandedItem, setExpandedItem] = useState(0); // First item expanded by default
-
+  const [expandedItem, setExpandedItem] = useState<number | null>(0);
   const experienceData = newExperienceData;
 
-  const toggleExpanded = (index) => {
+  const toggleExpanded = (index: number) => {
     setExpandedItem(expandedItem === index ? null : index);
   };
 
