@@ -165,9 +165,7 @@ const Footer = () => {
 
           {/* Footer Bottom */}
           <div className="text-center mt-16 text-sm text-slate-500 border-t border-slate-700/50 pt-8 relative">
-            <p>
-              &copy; {currentYear} Tharun Jatoth. Built with ❤️ and Next.js.
-            </p>
+            <p>&copy; {currentYear} Tharun Jatoth. All rights reserved.</p>
             <button
               onClick={scrollToTop}
               className="absolute right-4 top-1/2 -translate-y-1/2 bg-slate-700 hover:bg-slate-600 text-white rounded-full p-2 shadow-lg transition"

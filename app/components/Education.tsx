@@ -77,10 +77,13 @@ const Education = () => {
                     Christu Jyothi Institute of Technology and Science
                   </span>
                 </div>
-                <div className="border-l-4 border-blue-500 pl-4">
+                <div className="border-l-4 border-blue-500 pl-4 space-y-2">
                   <p className="text-sm text-gray-600">
                     Focused on software engineering principles, data structures,
                     algorithms, and modern web technologies.
+                  </p>
+                  <p className="text-sm text-gray-600 font-medium">
+                    CGPA: <span className="text-gray-800">7.1</span>
                   </p>
                 </div>
               </div>
@@ -109,10 +112,46 @@ const Education = () => {
                   <MapPin size={16} className="mr-2 text-gray-400" />
                   <span className="text-sm">Sri Gayatri Jr.College</span>
                 </div>
-                <div className="border-l-4 border-purple-500 pl-4">
+                <div className="border-l-4 border-purple-500 pl-4 space-y-2">
                   <p className="text-sm text-gray-600">
                     Strong foundation in analytical thinking and problem-solving
                     through science and mathematics.
+                  </p>
+                  <p className="text-sm text-gray-600 font-medium">
+                    Percentage: <span className="text-gray-800">70%</span>
+                  </p>
+                </div>
+              </div>
+
+              {/* SSC */}
+              <div className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                <div className="flex items-start justify-between mb-4">
+                  <div className="flex items-center">
+                    <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg flex items-center justify-center mr-3">
+                      <BookOpen size={20} className="text-white" />
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-lg text-gray-900">SSC</h4>
+                      <p className="text-blue-600 font-medium">
+                        General Studies
+                      </p>
+                    </div>
+                  </div>
+                  <span className="text-sm bg-blue-100 text-blue-700 px-3 py-1 rounded-full font-medium">
+                    2016 - 2017
+                  </span>
+                </div>
+                <div className="flex items-center text-gray-600 mb-3">
+                  <MapPin size={16} className="mr-2 text-gray-400" />
+                  <span className="text-sm">Sri Aurobindo High School</span>
+                </div>
+                <div className="border-l-4 border-blue-500 pl-4 space-y-2">
+                  <p className="text-sm text-gray-600">
+                    Gained fundamental knowledge across various subjects with
+                    emphasis on discipline and academic curiosity.
+                  </p>
+                  <p className="text-sm text-gray-600 font-medium">
+                    CGPA: <span className="text-gray-800">8.0</span>
                   </p>
                 </div>
               </div>
@@ -208,6 +247,47 @@ const Education = () => {
                   </span>
                   <span className="px-2 py-1 bg-green-100 text-green-700 rounded text-xs font-medium">
                     Cloud Development
+                  </span>
+                </div>
+              </div>
+
+              <div className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                <div className="flex items-start justify-between mb-4">
+                  <div className="flex items-center">
+                    <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg flex items-center justify-center mr-3">
+                      <Star size={20} className="text-white" />
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-lg text-gray-900">
+                        CVCORP Training Certificate
+                      </h4>
+                      <p className="text-blue-600 font-medium">
+                        Core Java, Adv Java, SQL, HTML/CSS
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex items-center">
+                    <CheckCircle size={20} className="text-blue-500" />
+                  </div>
+                </div>
+                <div className="border-l-4 border-blue-500 pl-4 mb-3">
+                  <p className="text-sm text-gray-600">
+                    Completed training program at <strong>CVCORP</strong> from
+                    Aug 2023 to April 2024 under the guidance of HR Priyanka T.
+                  </p>
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  <span className="px-2 py-1 bg-blue-100 text-blue-700 rounded text-xs font-medium">
+                    Core Java
+                  </span>
+                  <span className="px-2 py-1 bg-blue-100 text-blue-700 rounded text-xs font-medium">
+                    Advanced Java
+                  </span>
+                  <span className="px-2 py-1 bg-blue-100 text-blue-700 rounded text-xs font-medium">
+                    SQL
+                  </span>
+                  <span className="px-2 py-1 bg-blue-100 text-blue-700 rounded text-xs font-medium">
+                    HTML/CSS
                   </span>
                 </div>
               </div>
