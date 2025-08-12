@@ -14,10 +14,10 @@ import {
 
 const About = () => {
   const stats = [
-    { icon: Code, label: "Projects Completed", value: "25+" },
-    { icon: Users, label: "Happy Clients", value: "15+" },
+    { icon: Code, label: "Projects Completed", value: "10+" },
+    { icon: Users, label: "Happy Clients", value: "10+" },
     { icon: Coffee, label: "Cups of Coffee", value: "500+" },
-    { icon: TrendingUp, label: "Years Experience", value: "2+" },
+    { icon: TrendingUp, label: "Years Experience", value: "1+" },
   ];
 
   const highlights = [
