@@ -38,7 +38,7 @@ const About = () => {
     {
       icon: Database,
       title: "Database Design",
-      description: "MySQL, MongoDB, PostgreSQL",
+      description: "MySQL, MongoDB",
       color: "from-indigo-500 to-indigo-600",
       bgColor: "from-indigo-50 to-indigo-100",
     },

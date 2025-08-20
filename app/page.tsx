@@ -8,17 +8,23 @@ import Skills from "@/app/components/Skills";
 import Projects from "@/app/components/Projects";
 import Education from "@/app/components/Education";
 import Footer from "@/app/components/Footer";
+import Contact from "@/app/components/Contact";
 
 export default function Home() {
   return (
-    <div className="container mx-auto px-4 sm:px-6 lg:px-8 mt-16">
-      <Hero />
+    <div className="relative">
       <Header />
-      <About />
-      <Experience />
-      <Skills />
-      <Projects />
-      <Education />
+
+      <main className="container mx-auto px-4 sm:px-6 lg:px-8 mt-16">
+        <Hero />
+        <About />
+        <Experience />
+        <Skills />
+        <Projects />
+        <Education />
+        <Contact />
+      </main>
+
       <Footer />
     </div>
   );

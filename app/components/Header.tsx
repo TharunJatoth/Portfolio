@@ -37,6 +37,7 @@ const Header = () => {
 
   const scrollToSection = (href: string) => {
     const element = document.querySelector(href);
+    console.log(`Looking for: ${href}`, element); // Debug line
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
     }
