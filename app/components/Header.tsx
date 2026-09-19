@@ -37,7 +37,6 @@ const Header = () => {
 
   const scrollToSection = (href: string) => {
     const element = document.querySelector(href);
-    console.log(`Looking for: ${href}`, element); // Debug line
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
     }
@@ -49,35 +48,40 @@ const Header = () => {
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           isScrolled
-            ? "bg-white/95 backdrop-blur-md shadow-lg border-b border-gray-200"
-            : "bg-transparent"
+            ? "bg-[#070a13]/90 backdrop-blur-xl border-b border-white/10 shadow-2xl shadow-black/50 py-3"
+            : "bg-transparent py-4"
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
+          <div className="flex justify-between items-center h-12">
             {/* Logo */}
             <div
-              className="flex items-center cursor-pointer"
+              className="flex items-center cursor-pointer group"
               onClick={() => scrollToSection("#hero")}
             >
-              <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-purple-600 rounded-lg flex items-center justify-center shadow-lg">
-                <span className="text-white font-bold text-lg">TJ</span>
+              <div className="w-10 h-10 bg-gradient-to-br from-blue-500 via-indigo-500 to-purple-600 rounded-xl flex items-center justify-center shadow-lg shadow-blue-500/20 group-hover:shadow-blue-500/40 group-hover:scale-105 transition-all duration-200">
+                <span className="text-white font-black text-base tracking-wider">TJ</span>
               </div>
-              <span className="ml-3 text-xl font-bold bg-gradient-to-r from-gray-900 to-gray-600 bg-clip-text text-transparent">
-                Tharun Jatoth
-              </span>
+              <div className="ml-3 flex flex-col">
+                <span className="text-base sm:text-lg font-bold text-white group-hover:text-blue-400 transition-colors">
+                  Tharun Jatoth
+                </span>
+                <span className="text-[10px] text-slate-400 -mt-1 tracking-wider uppercase font-mono">
+                  Full Stack Engineer
+                </span>
+              </div>
             </div>
 
             {/* Desktop Navigation */}
-            <nav className="hidden lg:flex items-center space-x-1">
+            <nav className="hidden lg:flex items-center space-x-1 bg-slate-900/60 backdrop-blur-md border border-white/[0.08] px-3 py-1.5 rounded-full shadow-inner">
               {navItems.map((item) => (
                 <button
                   key={item.name}
                   onClick={() => scrollToSection(item.href)}
-                  className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
+                  className={`px-3.5 py-1.5 rounded-full text-xs font-medium transition-all duration-200 ${
                     activeSection === item.href
-                      ? "bg-blue-600 text-white shadow-lg"
-                      : "text-gray-700 hover:bg-gray-100 hover:text-blue-600"
+                      ? "bg-blue-600 text-white shadow-md shadow-blue-600/30"
+                      : "text-slate-300 hover:text-white hover:bg-white/[0.06]"
                   }`}
                 >
                   {item.name}
@@ -85,66 +89,63 @@ const Header = () => {
               ))}
             </nav>
 
-            {/* CTA Button & Mobile Menu */}
-            <div className="flex items-center space-x-4">
+            {/* CTA Button & Mobile Menu Toggle */}
+            <div className="flex items-center space-x-3">
               <a
                 href="/Resume.pdf"
                 download
-                className="hidden md:flex items-center bg-gradient-to-r from-blue-600 to-purple-600 text-white px-4 py-2 rounded-lg font-medium shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-200"
+                className="hidden sm:inline-flex items-center bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white px-4 py-2 rounded-xl text-xs font-semibold shadow-lg shadow-blue-600/25 hover:shadow-blue-600/40 hover:-translate-y-0.5 transition-all duration-200"
               >
-                <Download size={16} className="mr-2" />
+                <Download size={14} className="mr-1.5" />
                 Resume
               </a>
 
               {/* Mobile menu button */}
               <button
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                className="lg:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors duration-200"
+                className="lg:hidden p-2.5 rounded-xl bg-slate-800/80 hover:bg-slate-700/80 text-slate-300 hover:text-white border border-white/10 transition-colors"
+                aria-label="Toggle menu"
               >
-                {isMobileMenuOpen ? (
-                  <X size={24} className="text-gray-700" />
-                ) : (
-                  <Menu size={24} className="text-gray-700" />
-                )}
+                {isMobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
               </button>
             </div>
           </div>
         </div>
 
-        {/* Mobile Navigation */}
+        {/* Mobile Navigation Drawer */}
         <div
           className={`lg:hidden transition-all duration-300 ease-in-out ${
             isMobileMenuOpen
-              ? "max-h-96 opacity-100"
+              ? "max-h-[420px] opacity-100"
               : "max-h-0 opacity-0 overflow-hidden"
           }`}
         >
-          <div className="bg-white/95 backdrop-blur-md border-t border-gray-200 shadow-lg">
-            <div className="max-w-7xl mx-auto px-4 py-4">
-              <nav className="flex flex-col space-y-2">
-                {navItems.map((item) => (
-                  <button
-                    key={item.name}
-                    onClick={() => scrollToSection(item.href)}
-                    className={`text-left px-4 py-3 rounded-lg text-sm font-medium transition-all duration-200 ${
-                      activeSection === item.href
-                        ? "bg-blue-600 text-white"
-                        : "text-gray-700 hover:bg-gray-100 hover:text-blue-600"
-                    }`}
-                  >
-                    {item.name}
-                  </button>
-                ))}
+          <div className="bg-[#0b0f19]/95 backdrop-blur-2xl border-t border-b border-white/10 shadow-2xl px-4 py-4 mt-2">
+            <nav className="flex flex-col space-y-1">
+              {navItems.map((item) => (
+                <button
+                  key={item.name}
+                  onClick={() => scrollToSection(item.href)}
+                  className={`text-left px-4 py-2.5 rounded-xl text-sm font-medium transition-all duration-200 ${
+                    activeSection === item.href
+                      ? "bg-blue-600/20 text-blue-400 border border-blue-500/30 font-semibold"
+                      : "text-slate-300 hover:bg-white/[0.06] hover:text-white"
+                  }`}
+                >
+                  {item.name}
+                </button>
+              ))}
+              <div className="pt-2">
                 <a
-                  href="/Resume.pdf" // path to your PDF in public folder
+                  href="/Resume.pdf"
                   download
-                  className="flex items-center justify-center bg-gradient-to-r from-blue-600 to-purple-600 text-white px-4 py-3 rounded-lg font-medium mt-4"
+                  className="flex items-center justify-center bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-4 py-2.5 rounded-xl font-medium text-sm shadow-lg shadow-blue-600/30"
                 >
                   <Download size={16} className="mr-2" />
                   Download Resume
                 </a>
-              </nav>
-            </div>
+              </div>
+            </nav>
           </div>
         </div>
       </header>
@@ -152,7 +153,7 @@ const Header = () => {
       {/* Overlay for mobile menu */}
       {isMobileMenuOpen && (
         <div
-          className="fixed inset-0 bg-black/20 z-40 lg:hidden"
+          className="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 lg:hidden"
           onClick={() => setIsMobileMenuOpen(false)}
         />
       )}

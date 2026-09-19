@@ -12,10 +12,10 @@ import Contact from "@/app/components/Contact";
 
 export default function Home() {
   return (
-    <div className="relative">
+    <div className="relative min-h-screen bg-[#070a13] text-slate-100 overflow-x-hidden">
       <Header />
 
-      <main className="container mx-auto px-4 sm:px-6 lg:px-8 mt-16">
+      <main className="w-full flex flex-col">
         <Hero />
         <About />
         <Experience />

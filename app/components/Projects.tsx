@@ -3,241 +3,249 @@
 import React from "react";
 import {
   Briefcase,
-  Calendar,
-  User,
   Building,
-  Code,
-  CheckCircle,
-  Star,
+  Code2,
+  CheckCircle2,
+  Layers,
+  Sparkles,
+  Server,
+  ShoppingCart,
+  Wrench,
+  ShieldCheck,
+  Zap,
 } from "lucide-react";
 
-// Define project type for TypeScript
 type Project = {
+  id: string;
   title: string;
-  client: string;
-  role: string;
   category: string;
+  role: string;
+  status: "Production" | "Completed";
+  statusNote: string;
+  icon: React.ElementType;
+  accentColor: string;
+  badgeBg: string;
   tech: string[];
-  details: string[];
-  status: string;
-  duration: string;
+  highlights: string[];
+  metrics?: { label: string; value: string };
 };
 
 const Projects = () => {
   const projectsData: Project[] = [
     {
-      title: "E-Commerce Platform",
-      client: "Tech Solutions Inc",
+      id: "interior-design-platform",
+      title: "Enterprise Interior Design & Project Management Platform",
+      category: "Enterprise Full-Stack Platform",
       role: "Full Stack Developer",
-      category: "Web Application",
-      tech: ["React", "Node.js", "AWS"],
-      details: [
-        "Built responsive e-commerce platform with React and Next.js",
-        "Implemented secure payment gateway integration",
-        "Developed admin dashboard for inventory management",
-        "Achieved 40% performance improvement through optimization",
+      status: "Production",
+      statusNote: "Active Production Deployment",
+      icon: Building,
+      accentColor: "from-blue-500 via-indigo-500 to-violet-500",
+      badgeBg: "bg-blue-500/10 text-blue-400 border-blue-500/30",
+      tech: ["Next.js", "NestJS", "MongoDB", "Razorpay", "Linux", "NGINX", "Tailwind CSS"],
+      metrics: { label: "Deployment", value: "Linux + NGINX + SSL" },
+      highlights: [
+        "Delivered end-to-end production features spanning responsive frontend, modular NestJS backend services, and high-performance MongoDB data layers.",
+        "Engineered role-based dashboards and multi-tenant workflows for administrators, vendors, and customers with strict access control.",
+        "Integrated end-to-end Razorpay payment workflows supporting booking payments, installment milestones, and automated transaction verification.",
+        "Configured production servers, domain DNS, SSL/TLS certificates, reverse proxies, and continuous performance tuning.",
       ],
-      status: "Completed",
-      duration: "6 months",
     },
     {
-      title: "Next JS Landing Page Site",
-      client: "Bigcareers",
-      role: "Frontend Developer",
-      category: "Marketing / SEO",
-      tech: ["Next.js", "TypeScript", "React.js", "Tailwind CSS"],
-      details: [
-        "Developed a highly responsive and SEO-optimized landing page for Kolval",
-        "Used Next.js with server-side rendering to improve performance and crawlability",
-        "Ensured fast load times and cross-browser compatibility",
-        "Applied Tailwind CSS for clean, consistent styling and utility-first design",
-        "Focused on accessibility and responsive layout across various screen sizes",
-      ],
+      id: "ecommerce-platform",
+      title: "Full-Stack Multi-Vendor E-Commerce Platform",
+      category: "E-Commerce & Marketplaces",
+      role: "Full Stack Developer",
       status: "Completed",
-      duration: "1 month",
+      statusNote: "Full Architecture & REST APIs",
+      icon: ShoppingCart,
+      accentColor: "from-violet-500 via-purple-500 to-fuchsia-500",
+      badgeBg: "bg-purple-500/10 text-purple-400 border-purple-500/30",
+      tech: ["Next.js", "Node.js", "Express.js", "MongoDB", "JWT Auth", "REST APIs"],
+      metrics: { label: "Security", value: "JWT + RBAC Guards" },
+      highlights: [
+        "Engineered scalable commerce architecture with isolated workflows for administrators, storefront vendors, and retail customers.",
+        "Built inventory, real-time stock levels, catalog indexing, product categorizations, and automated order processing pipelines.",
+        "Designed normalized MongoDB schemas and secure RESTful endpoints with centralized error handling and request validation.",
+        "Implemented secure JWT authentication, encrypted credential storage, and responsive Next.js frontend interfaces.",
+      ],
     },
     {
-      title: "Hospital Information Management System",
-      client: "Healthcare Solutions Inc.",
-      role: "Full Stack Developer",
-      category: "Healthcare Platform",
-      tech: [
-        "Next.js",
-        "TypeScript",
-        "React.js",
-        "Tailwind CSS",
-        "Material UI",
-        "NextAuth.js",
-      ],
-      details: [
-        "Developed a responsive healthcare platform using React.js and Next.js",
-        "Implemented Material UI for consistent design and reusable components",
-        "Integrated NextAuth.js for secure and scalable authentication",
-        "Optimized performance for cross-device compatibility and accessibility",
-        "Ensured responsive design and smooth UX across desktop and mobile devices",
-      ],
+      id: "garage-management-system",
+      title: "Garage Management System (GMS)",
+      category: "Automotive & Service Workflow",
+      role: "Backend & Database Developer",
       status: "Completed",
-      duration: "6 months",
-    },
-    {
-      title: "Interior Design Platform Integration",
-      client: "PerSft",
-      role: "Full Stack Developer",
-      category: "Interior Design",
-      tech: ["Next.js", "TypeScript", "React.js", "Tailwind CSS"],
-      details: [
-        "Integrated an enterprise-level interior design platform with advanced customization features",
-        "Enabled users to modify design selections and receive instant cost analysis",
-        "Implemented cart functionality for managing design packages and purchases",
-        "Built a scheduling module to streamline project planning and execution",
-        "Provided real-time project tracking for both users and administrators",
+      statusNote: "Service Lifecycle & Billing",
+      icon: Wrench,
+      accentColor: "from-emerald-500 via-teal-500 to-cyan-500",
+      badgeBg: "bg-emerald-500/10 text-emerald-400 border-emerald-500/30",
+      tech: ["Java", "Spring Boot", "MySQL", "REST APIs", "Postman", "Hibernate/JPA"],
+      metrics: { label: "Backend", value: "Spring Boot + MySQL" },
+      highlights: [
+        "Constructed robust backend services covering the entire vehicle lifecycle: intake inspection, technician assignment, job execution, and billing.",
+        "Designed structured relational MySQL schemas ensuring data consistency across customers, service logs, parts inventory, and invoices.",
+        "Implemented custom business exceptions, input validation, and high-reliability transaction management.",
+        "Exhaustively tested and documented all REST endpoints with Postman collections for rapid third-party integration.",
       ],
-      status: "Completed",
-      duration: "5 months",
     },
   ];
-
-  const getStatusColor = (status: string): string => {
-    return status === "Completed"
-      ? "text-green-600 bg-green-100"
-      : "text-blue-600 bg-blue-100";
-  };
-
-  const getCategoryIcon = (category: string): React.ElementType => {
-    const icons: Record<string, React.ElementType> = {
-      "Web Application": Code,
-      "Enterprise Application": Building,
-      "Data Visualization": Star,
-      "Mobile Application": Briefcase,
-      "Healthcare Platform": Briefcase,
-      "Interior Design": Building,
-      "Marketing / SEO": Briefcase,
-    };
-    return icons[category] || Code;
-  };
 
   return (
     <section
       id="projects"
-      className="py-20 bg-gradient-to-br from-gray-50 to-blue-50 relative overflow-hidden"
+      className="py-24 bg-[#070a13] relative overflow-hidden text-slate-100"
     >
-      {/* Decorative Background Blobs */}
-      <div className="absolute top-0 left-0 w-96 h-96 bg-gradient-to-br from-purple-100 to-pink-100 rounded-full -translate-y-48 -translate-x-48 opacity-30"></div>
-      <div className="absolute bottom-0 right-0 w-96 h-96 bg-gradient-to-tl from-blue-100 to-indigo-100 rounded-full translate-y-48 translate-x-48 opacity-30"></div>
+      {/* Ambient background glow */}
+      <div className="absolute top-1/4 -right-48 w-96 h-96 bg-blue-600/10 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-10 -left-48 w-96 h-96 bg-violet-600/10 rounded-full blur-[120px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center bg-purple-50 rounded-full px-6 py-2 mb-6">
-            <Briefcase size={16} className="text-purple-600 mr-2" />
-            <span className="text-sm font-semibold text-purple-600">
-              Portfolio
-            </span>
+        <div className="text-center max-w-3xl mx-auto mb-16">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-semibold uppercase tracking-wider mb-4">
+            <Briefcase size={14} />
+            <span>Featured Case Studies</span>
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-            Featured Projects
+
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white mb-4">
+            Production & Enterprise{" "}
+            <span className="bg-gradient-to-r from-blue-400 via-indigo-300 to-violet-400 bg-clip-text text-transparent">
+              Projects
+            </span>
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-purple-600 to-pink-600 mx-auto mb-8"></div>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            A showcase of successful projects demonstrating technical expertise
-            and problem-solving capabilities.
+
+          <p className="text-base sm:text-lg text-slate-400 leading-relaxed">
+            Real-world systems demonstrating architectural rigor, secure payment lifecycles,
+            modular microservices, and end-to-end production deployments.
           </p>
         </div>
 
-        {/* Projects Grid */}
-        <div className="grid md:grid-cols-2 gap-8">
-          {projectsData.map((project, index) => {
-            const CategoryIcon = getCategoryIcon(project.category);
+        {/* Project Cards Grid */}
+        <div className="space-y-10">
+          {projectsData.map((project, idx) => {
+            const Icon = project.icon;
+            const isFeatured = idx === 0;
+
             return (
               <div
-                key={index}
-                className="group bg-white rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-gray-100"
+                key={project.id}
+                className="glass-card rounded-2xl sm:rounded-3xl p-6 sm:p-8 lg:p-10 transition-all duration-300 hover:border-blue-500/30 group relative overflow-hidden"
               >
-                {/* Project Header */}
-                <div className="flex items-start justify-between mb-6">
-                  <div className="flex items-center">
-                    <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl flex items-center justify-center mr-4">
-                      <CategoryIcon size={24} className="text-white" />
+                {/* Subtle top gradient accent on card */}
+                <div
+                  className={`absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r ${project.accentColor} opacity-70 group-hover:opacity-100 transition-opacity`}
+                />
+
+                <div className="grid lg:grid-cols-12 gap-8 items-start">
+                  {/* Left Column: Project Overview */}
+                  <div className="lg:col-span-7 space-y-6">
+                    {/* Header bar: Category + Status Badge */}
+                    <div className="flex flex-wrap items-center justify-between gap-3">
+                      <div className="flex items-center gap-3">
+                        <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-white/10 to-white/5 border border-white/10 flex items-center justify-center text-white shadow-inner">
+                          <Icon size={20} className="text-blue-400" />
+                        </div>
+                        <div>
+                          <span className="text-xs font-semibold uppercase tracking-wider text-slate-400">
+                            {project.category}
+                          </span>
+                          <p className="text-xs text-slate-500">
+                            Role: <span className="text-slate-300 font-medium">{project.role}</span>
+                          </p>
+                        </div>
+                      </div>
+
+                      <div className="flex items-center gap-2">
+                        {project.status === "Production" ? (
+                          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 shadow-[0_0_12px_rgba(16,185,129,0.2)]">
+                            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
+                            <span>{project.statusNote}</span>
+                          </span>
+                        ) : (
+                          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-blue-500/10 text-blue-400 border border-blue-500/30">
+                            <CheckCircle2 size={13} />
+                            <span>{project.statusNote}</span>
+                          </span>
+                        )}
+                      </div>
                     </div>
+
+                    {/* Title */}
+                    <h3 className="text-2xl sm:text-3xl font-bold text-white group-hover:text-blue-300 transition-colors">
+                      {project.title}
+                    </h3>
+
+                    {/* Highlights / Responsibilities */}
+                    <div className="space-y-3 pt-2">
+                      <p className="text-xs font-semibold uppercase tracking-wider text-slate-400 flex items-center gap-2">
+                        <Layers size={14} className="text-blue-400" />
+                        <span>Key Deliverables & Architectural Impact</span>
+                      </p>
+                      <ul className="space-y-2.5">
+                        {project.highlights.map((point, pointIdx) => (
+                          <li
+                            key={pointIdx}
+                            className="flex items-start gap-3 text-sm text-slate-300 leading-relaxed"
+                          >
+                            <CheckCircle2
+                              size={16}
+                              className="text-emerald-400 shrink-0 mt-0.5"
+                            />
+                            <span>{point}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+
+                  {/* Right Column: Tech Stack & Architecture Specs */}
+                  <div className="lg:col-span-5 bg-slate-900/60 rounded-2xl p-6 border border-white/[0.06] flex flex-col justify-between space-y-6">
+                    {/* Tech Stack List */}
                     <div>
-                      <span className="text-sm text-gray-500 font-medium">
-                        {project.category}
+                      <h4 className="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-3 flex items-center gap-2">
+                        <Code2 size={14} className="text-violet-400" />
+                        <span>Technology Stack</span>
+                      </h4>
+                      <div className="flex flex-wrap gap-2">
+                        {project.tech.map((t, tIdx) => (
+                          <span
+                            key={tIdx}
+                            className="px-3 py-1 rounded-lg text-xs font-medium bg-white/[0.04] text-slate-200 border border-white/[0.08] hover:border-blue-400/40 hover:bg-white/[0.08] transition-all"
+                          >
+                            {t}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* Architecture Pill */}
+                    {project.metrics && (
+                      <div className="p-4 rounded-xl bg-gradient-to-r from-blue-950/40 to-slate-900 border border-blue-500/20">
+                        <p className="text-xs text-slate-400 uppercase font-semibold">
+                          System Capability
+                        </p>
+                        <p className="text-base font-bold text-white mt-0.5">
+                          {project.metrics.value}
+                        </p>
+                        <p className="text-xs text-slate-400 mt-1">
+                          Enterprise-grade deployment with full production verification and zero-downtime workflows.
+                        </p>
+                      </div>
+                    )}
+
+                    {/* Quick highlights footer */}
+                    <div className="pt-4 border-t border-white/[0.06] flex items-center justify-between text-xs text-slate-400">
+                      <span className="flex items-center gap-1.5">
+                        <ShieldCheck size={14} className="text-emerald-400" />
+                        Production Tested
                       </span>
-                      <h3 className="text-xl font-bold text-gray-900 group-hover:text-purple-600 transition-colors duration-300">
-                        {project.title}
-                      </h3>
+                      <span className="flex items-center gap-1.5">
+                        <Zap size={14} className="text-amber-400" />
+                        Optimized Performance
+                      </span>
                     </div>
                   </div>
-                  <span
-                    className={`px-3 py-1 rounded-full text-xs font-semibold ${getStatusColor(
-                      project.status
-                    )}`}
-                  >
-                    {project.status}
-                  </span>
-                </div>
-
-                {/* Client & Role Info */}
-                <div className="space-y-2 mb-6">
-                  {project.client && (
-                    <div className="flex items-center text-gray-600">
-                      <Building size={16} className="mr-2 text-gray-400" />
-                      <span className="text-sm">
-                        <strong>Client:</strong> {project.client}
-                      </span>
-                    </div>
-                  )}
-                  {project.role && (
-                    <div className="flex items-center text-gray-600">
-                      <User size={16} className="mr-2 text-gray-400" />
-                      <span className="text-sm">
-                        <strong>Role:</strong> {project.role}
-                      </span>
-                    </div>
-                  )}
-                  <div className="flex items-center text-gray-600">
-                    <Calendar size={16} className="mr-2 text-gray-400" />
-                    <span className="text-sm">
-                      <strong>Duration:</strong> {project.duration}
-                    </span>
-                  </div>
-                </div>
-
-                {/* Tech Stack */}
-                <div className="mb-6">
-                  <h4 className="text-sm font-semibold text-gray-700 mb-3">
-                    Technology Stack
-                  </h4>
-                  <div className="flex flex-wrap gap-2">
-                    {project.tech.map((tech, techIndex) => (
-                      <span
-                        key={techIndex}
-                        className="px-3 py-1 bg-gradient-to-r from-purple-100 to-pink-100 text-purple-700 rounded-full text-xs font-medium"
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Details */}
-                <div className="space-y-3">
-                  {project.details.map((detail, detailIndex) => (
-                    <div key={detailIndex} className="flex items-start">
-                      <CheckCircle
-                        size={16}
-                        className="text-green-500 mr-3 mt-0.5 flex-shrink-0"
-                      />
-                      <span className="text-gray-600 text-sm leading-relaxed">
-                        {detail}
-                      </span>
-                    </div>
-                  ))}
-                </div>
-
-                {/* Decorative Line on Hover */}
-                <div className="mt-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <div className="h-1 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
                 </div>
               </div>
             );

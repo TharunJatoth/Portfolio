@@ -6,10 +6,11 @@ import {
   Server,
   Database,
   Globe,
-  Layers,
   Zap,
   Star,
   TrendingUp,
+  ShieldCheck,
+  Cpu,
 } from "lucide-react";
 
 type Skill = {
@@ -25,141 +26,148 @@ const Skills = () => {
   const skillCategories = {
     Frontend: {
       icon: Code,
-      color: "from-blue-500 to-blue-600",
-      bgColor: "from-blue-50 to-blue-100",
+      color: "from-blue-500 to-cyan-500",
+      bgColor: "bg-blue-500/10",
+      borderColor: "border-blue-500/30",
       skills: [
         {
-          name: "React",
-          level: 95,
-          description: "Advanced component architecture & hooks",
-        },
-        {
           name: "Next.js",
-          level: 90,
-          description: "SSR, SSG, and full-stack applications",
+          level: 95,
+          description: "SSR, SSG, App Router & administrative dashboards",
         },
         {
-          name: "TypeScript",
-          level: 85,
-          description: "Type-safe development practices",
-        },
-        {
-          name: "Tailwind CSS",
-          level: 90,
-          description: "Utility-first CSS framework",
+          name: "React.js",
+          level: 95,
+          description: "Component architecture, hooks, and responsive UX",
         },
         {
           name: "JavaScript (ES6+)",
-          level: 95,
-          description: "Modern JavaScript features",
+          level: 92,
+          description: "Modern ES6+, asynchronous programming & APIs",
+        },
+        {
+          name: "Tailwind CSS",
+          level: 92,
+          description: "Utility-first modern responsive UI design",
+        },
+        {
+          name: "Material UI",
+          level: 88,
+          description: "Production UI component library & themes",
         },
         {
           name: "HTML5 & CSS3",
           level: 95,
-          description: "Semantic markup & modern styling",
+          description: "Semantic web markup, layouts, and animations",
+        },
+        {
+          name: "Bootstrap",
+          level: 85,
+          description: "Grid systems and responsive mobile components",
         },
       ],
     },
-    Backend: {
+    "Backend & APIs": {
       icon: Server,
-      color: "from-purple-500 to-purple-600",
-      bgColor: "from-purple-50 to-purple-100",
+      color: "from-purple-500 to-indigo-500",
+      bgColor: "bg-purple-500/10",
+      borderColor: "border-purple-500/30",
       skills: [
         {
-          name: "Spring Boot",
-          level: 90,
-          description: "RESTful APIs & microservices",
+          name: "NestJS",
+          level: 92,
+          description: "Modular enterprise architecture, services & controllers",
         },
         {
           name: "Node.js",
-          level: 85,
-          description: "Server-side JavaScript runtime",
-        },
-        {
-          name: "Express.js",
-          level: 80,
-          description: "Web application framework",
-        },
-        {
-          name: "RESTful APIs",
           level: 90,
-          description: "API design & implementation",
+          description: "Scalable server-side runtimes & microservices",
         },
-        { name: "GraphQL", level: 75, description: "Query language for APIs" },
         {
-          name: "Microservices",
-          level: 80,
-          description: "Distributed system architecture",
+          name: "Spring Boot",
+          level: 88,
+          description: "Enterprise Java REST services, models & logic",
+        },
+        {
+          name: "REST APIs",
+          level: 95,
+          description: "Modular API design, validation, and documentation",
+        },
+        {
+          name: "Role-Based Access Control",
+          level: 92,
+          description: "Multi-role security, permissions & data isolation",
+        },
+        {
+          name: "JWT Authentication",
+          level: 92,
+          description: "Secure token issuance, verification & protected routes",
         },
       ],
     },
-    Database: {
+    Databases: {
       icon: Database,
-      color: "from-indigo-500 to-indigo-600",
-      bgColor: "from-indigo-50 to-indigo-100",
+      color: "from-cyan-500 to-blue-500",
+      bgColor: "bg-cyan-500/10",
+      borderColor: "border-cyan-500/30",
       skills: [
+        {
+          name: "MongoDB",
+          level: 92,
+          description: "Document data models, aggregations & indexes",
+        },
         {
           name: "MySQL",
           level: 90,
-          description: "Relational database management",
-        },
-        {
-          name: "PostgreSQL",
-          level: 85,
-          description: "Advanced SQL database",
-        },
-        {
-          name: "MongoDB",
-          level: 80,
-          description: "NoSQL document database",
-        },
-        {
-          name: "Redis",
-          level: 75,
-          description: "In-memory data structure store",
+          description: "Relational schema design, queries, and constraints",
         },
         {
           name: "Database Design",
-          level: 85,
-          description: "Schema design & optimization",
+          level: 90,
+          description: "Production schema architecture & normalization",
         },
         {
           name: "Query Optimization",
-          level: 80,
-          description: "Performance tuning",
+          level: 88,
+          description: "Index tuning, query optimization & profiling",
         },
       ],
     },
-    "DevOps & Tools": {
+    "Cloud & Infrastructure": {
       icon: Globe,
-      color: "from-green-500 to-green-600",
-      bgColor: "from-green-50 to-green-100",
+      color: "from-emerald-500 to-teal-500",
+      bgColor: "bg-emerald-500/10",
+      borderColor: "border-emerald-500/30",
       skills: [
-        { name: "AWS", level: 80, description: "Cloud services & deployment" },
         {
-          name: "Azure",
-          level: 75,
-          description: "Microsoft cloud platform",
+          name: "Linux Server Administration",
+          level: 88,
+          description: "Server configuration, maintenance, and CLI workflows",
         },
         {
-          name: "Docker",
+          name: "NGINX",
+          level: 88,
+          description: "Reverse proxy setup, SSL/TLS, and load balancing",
+        },
+        {
+          name: "Microsoft Azure",
           level: 85,
-          description: "Containerization technology",
+          description: "AZ-900 Certified (Fundamentals, Administration)",
         },
         {
-          name: "Git & GitHub",
+          name: "aaPanel, SSL/TLS & DNS",
+          level: 88,
+          description: "Domain DNS records, SSL certificates, host panels",
+        },
+        {
+          name: "Razorpay Integration",
+          level: 92,
+          description: "Booking, partial payments, webhooks & order lifecycle",
+        },
+        {
+          name: "Git & Bitbucket / GitHub",
           level: 95,
-          description: "Version control systems",
-        },
-        {
-          name: "CI/CD",
-          level: 80,
-          description: "Continuous integration/deployment",
-        },
-        {
-          name: "Linux",
-          level: 75,
-          description: "Unix-like operating systems",
+          description: "Version control, pull request workflows & code review",
         },
       ],
     },
@@ -167,17 +175,29 @@ const Skills = () => {
 
   const getSkillIcon = (skillName: string): string => {
     const icons: Record<string, string> = {
-      React: "⚛️",
-      "Next.js": "🔺",
-      TypeScript: "🔷",
+      "React.js": "⚛️",
+      "Next.js": "▲",
       "JavaScript (ES6+)": "🟨",
-      "Spring Boot": "🍃",
+      "Tailwind CSS": "🎨",
+      "Material UI": "🧩",
+      "HTML5 & CSS3": "🌐",
+      Bootstrap: "🅱️",
+      NestJS: "🦁",
       "Node.js": "🟢",
+      "Spring Boot": "🍃",
+      "REST APIs": "🔌",
+      "Role-Based Access Control": "🛡️",
+      "JWT Authentication": "🔐",
       MySQL: "🐬",
       MongoDB: "🍃",
-      AWS: "☁️",
-      Docker: "🐳",
-      "Git & GitHub": "🐱",
+      "Database Design": "📊",
+      "Query Optimization": "⚡",
+      "Linux Server Administration": "🐧",
+      NGINX: "⚙️",
+      "Microsoft Azure": "☁️",
+      "aaPanel, SSL/TLS & DNS": "🔒",
+      "Razorpay Integration": "💳",
+      "Git & Bitbucket / GitHub": "🐱",
     };
     return icons[skillName] || "💻";
   };
@@ -185,55 +205,52 @@ const Skills = () => {
   const SkillBar = ({ skill }: { skill: Skill }) => (
     <div className="group">
       <div className="flex items-center justify-between mb-2">
-        <div className="flex items-center">
-          <span className="text-2xl mr-3">{getSkillIcon(skill.name)}</span>
+        <div className="flex items-center gap-3">
+          <span className="text-xl sm:text-2xl">{getSkillIcon(skill.name)}</span>
           <div>
-            <h4 className="font-semibold text-gray-900 group-hover:text-blue-600 transition-colors duration-200">
+            <h4 className="font-bold text-sm sm:text-base text-white group-hover:text-blue-400 transition-colors">
               {skill.name}
             </h4>
-            <p className="text-sm text-gray-500">{skill.description}</p>
+            <p className="text-xs text-slate-400 leading-snug">{skill.description}</p>
           </div>
         </div>
-        <span className="text-sm font-bold text-gray-600">{skill.level}%</span>
+        <span className="text-xs font-mono font-bold text-blue-400 bg-blue-500/10 px-2 py-0.5 rounded-md ml-2 flex-shrink-0">
+          {skill.level}%
+        </span>
       </div>
-      <div className="w-full bg-gray-200 rounded-full h-2.5 mb-4 overflow-hidden">
+
+      <div className="w-full bg-slate-800/80 rounded-full h-2 overflow-hidden p-0.5 border border-white/[0.04]">
         <div
-          className="bg-gradient-to-r from-blue-500 to-purple-500 h-2.5 rounded-full animate-[fillBar_1.5s_ease-out_forwards]"
-          style={{
-            width: `${skill.level}%`,
-          }}
-        ></div>
+          className="bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500 h-full rounded-full transition-all duration-1000 ease-out"
+          style={{ width: `${skill.level}%` }}
+        />
       </div>
     </div>
   );
 
   return (
-    <section id="skills" className="py-20 bg-white relative overflow-hidden">
-      {/* Background Decorations */}
-      <div className="absolute top-0 right-0 w-72 h-72 bg-gradient-to-bl from-blue-100 to-purple-100 rounded-full -translate-y-36 translate-x-36 opacity-30"></div>
-      <div className="absolute bottom-0 left-0 w-72 h-72 bg-gradient-to-tr from-indigo-100 to-pink-100 rounded-full translate-y-36 -translate-x-36 opacity-30"></div>
+    <section id="skills" className="py-20 lg:py-28 bg-[#090d16] relative overflow-hidden">
+      {/* Ambient Lighting */}
+      <div className="absolute top-1/4 right-0 w-96 h-96 bg-cyan-600/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-10 left-0 w-96 h-96 bg-purple-600/10 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center bg-blue-50 rounded-full px-6 py-2 mb-6">
-            <Zap size={16} className="text-blue-600 mr-2" />
-            <span className="text-sm font-semibold text-blue-600">
-              Technical Expertise
-            </span>
+        <div className="text-center max-w-3xl mx-auto mb-16 sm:mb-20">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-xs font-mono mb-4">
+            <Zap size={14} />
+            <span>Technical Capabilities</span>
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-            Skills & Technologies
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight mb-4">
+            Skills & Technology Stack
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto mb-8"></div>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            A comprehensive overview of my technical skills and proficiency
-            levels across different domains
+          <p className="text-slate-400 text-base sm:text-lg leading-relaxed">
+            Proficiencies across frontend architecture, distributed backend services, database design, and cloud infrastructure.
           </p>
         </div>
 
-        {/* Skills Overview Cards */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+        {/* Category Switcher Tabs */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 mb-10">
           {(
             Object.entries(skillCategories) as [
               keyof typeof skillCategories,
@@ -247,65 +264,66 @@ const Skills = () => {
               <button
                 key={category}
                 onClick={() => setActiveCategory(category)}
-                className={`p-6 rounded-2xl text-center transition-all duration-300 transform hover:scale-105 ${
+                className={`p-4 sm:p-5 rounded-2xl text-left transition-all duration-200 border flex items-center gap-3.5 cursor-pointer ${
                   isActive
-                    ? `bg-gradient-to-br ${data.bgColor} shadow-xl border-2 border-blue-200`
-                    : "bg-gray-50 hover:bg-gray-100 shadow-lg hover:shadow-xl"
+                    ? `bg-slate-800/90 ${data.borderColor} shadow-lg shadow-blue-500/10 border-blue-500/40`
+                    : "glass-card hover:bg-slate-800/50 border-white/[0.06]"
                 }`}
               >
                 <div
-                  className={`w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-4 transition-all duration-300 ${
+                  className={`w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 transition-transform ${
                     isActive
-                      ? `bg-gradient-to-br ${data.color} shadow-lg`
-                      : "bg-gray-200 group-hover:bg-gray-300"
+                      ? `bg-gradient-to-br ${data.color} text-white shadow-md`
+                      : "bg-slate-800 text-slate-400"
                   }`}
                 >
-                  <Icon
-                    size={28}
-                    className={isActive ? "text-white" : "text-gray-600"}
-                  />
+                  <Icon size={20} />
                 </div>
-                <h3
-                  className={`text-lg font-bold mb-2 ${
-                    isActive ? "text-gray-900" : "text-gray-700"
-                  }`}
-                >
-                  {category}
-                </h3>
-                <p className="text-sm text-gray-500">
-                  {data.skills.length} skills
-                </p>
+                <div className="min-w-0 flex-1">
+                  <h3
+                    className={`text-xs sm:text-sm font-bold truncate ${
+                      isActive ? "text-white" : "text-slate-300"
+                    }`}
+                  >
+                    {category}
+                  </h3>
+                  <p className="text-[11px] text-slate-500 font-mono">
+                    {data.skills.length} skills
+                  </p>
+                </div>
               </button>
             );
           })}
         </div>
 
-        {/* Detailed Skills Display */}
-        <div className="bg-gradient-to-br from-gray-50 to-blue-50 rounded-3xl p-8 md:p-12 shadow-xl">
-          <div className="flex items-center mb-8">
+        {/* Detailed Skills Display Matrix */}
+        <div className="glass-card rounded-3xl p-6 sm:p-10 shadow-2xl border border-white/[0.08] mb-16">
+          <div className="flex items-center gap-3 mb-8 pb-6 border-b border-white/[0.08]">
             {(() => {
               const Icon = skillCategories[activeCategory].icon;
               return (
                 <div
-                  className={`w-12 h-12 bg-gradient-to-br ${skillCategories[activeCategory].color} rounded-xl flex items-center justify-center mr-4`}
+                  className={`w-11 h-11 bg-gradient-to-br ${skillCategories[activeCategory].color} rounded-xl flex items-center justify-center text-white shadow-lg`}
                 >
-                  <Icon size={24} className="text-white" />
+                  <Icon size={22} />
                 </div>
               );
             })()}
             <div>
-              <h3 className="text-2xl font-bold text-gray-900">
-                {activeCategory} Skills
+              <h3 className="text-xl sm:text-2xl font-bold text-white">
+                {activeCategory} Proficiency
               </h3>
-              <p className="text-gray-600">Detailed proficiency breakdown</p>
+              <p className="text-xs sm:text-sm text-slate-400">
+                Production-tested skills and implementation scope
+              </p>
             </div>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8">
-            {skillCategories[activeCategory].skills.map((skill, index) => (
+          <div className="grid md:grid-cols-2 gap-6 sm:gap-8">
+            {skillCategories[activeCategory].skills.map((skill) => (
               <div
                 key={skill.name}
-                className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300"
+                className="bg-slate-900/60 rounded-2xl p-4 sm:p-5 border border-white/[0.06] hover:border-white/10 transition-colors"
               >
                 <SkillBar skill={skill} />
               </div>
@@ -313,57 +331,45 @@ const Skills = () => {
           </div>
         </div>
 
-        {/* Skill Highlights */}
-        <div className="mt-16 grid md:grid-cols-3 gap-8">
-          <div className="text-center p-8 bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl">
-            <div className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
-              <Star size={28} className="text-white" />
+        {/* Architectural Strengths Highlights */}
+        <div className="grid md:grid-cols-3 gap-6">
+          <div className="glass-card glass-card-hover rounded-2xl p-6 sm:p-8 text-center border border-blue-500/20">
+            <div className="w-12 h-12 rounded-xl bg-blue-500/20 text-blue-400 flex items-center justify-center mx-auto mb-4">
+              <Star size={24} />
             </div>
-            <h4 className="text-xl font-bold text-gray-900 mb-2">
-              Full Stack Expert
+            <h4 className="text-lg font-bold text-white mb-2">
+              Full Stack Delivery
             </h4>
-            <p className="text-gray-600">
-              End-to-end development capabilities from frontend to backend
+            <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">
+              Complete ownership from responsive client experiences down to server configuration and reverse proxy deployments.
             </p>
           </div>
 
-          <div className="text-center p-8 bg-gradient-to-br from-purple-50 to-purple-100 rounded-2xl">
-            <div className="w-16 h-16 bg-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
-              <TrendingUp size={28} className="text-white" />
+          <div className="glass-card glass-card-hover rounded-2xl p-6 sm:p-8 text-center border border-purple-500/20">
+            <div className="w-12 h-12 rounded-xl bg-purple-500/20 text-purple-400 flex items-center justify-center mx-auto mb-4">
+              <TrendingUp size={24} />
             </div>
-            <h4 className="text-xl font-bold text-gray-900 mb-2">
-              Performance Focused
+            <h4 className="text-lg font-bold text-white mb-2">
+              Performance Engineering
             </h4>
-            <p className="text-gray-600">
-              Optimized solutions that scale and perform under pressure
+            <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">
+              Proven 40% reduction in page load times via code splitting, asset optimization, query indexing, and caching strategies.
             </p>
           </div>
 
-          <div className="text-center p-8 bg-gradient-to-br from-green-50 to-green-100 rounded-2xl">
-            <div className="w-16 h-16 bg-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
-              <Layers size={28} className="text-white" />
+          <div className="glass-card glass-card-hover rounded-2xl p-6 sm:p-8 text-center border border-emerald-500/20">
+            <div className="w-12 h-12 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center mx-auto mb-4">
+              <ShieldCheck size={24} />
             </div>
-            <h4 className="text-xl font-bold text-gray-900 mb-2">
-              Modern Stack
+            <h4 className="text-lg font-bold text-white mb-2">
+              Security & Payment Workflows
             </h4>
-            <p className="text-gray-600">
-              Latest technologies and industry best practices
+            <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">
+              Hardened JWT authentication, role-based authorization (RBAC), and transactional Razorpay payment processing.
             </p>
           </div>
         </div>
       </div>
-
-      {/* Custom Keyframe Animation */}
-      <style jsx>{`
-        @keyframes fillBar {
-          0% {
-            transform: scaleX(0);
-          }
-          100% {
-            transform: scaleX(1);
-          }
-        }
-      `}</style>
     </section>
   );
 };

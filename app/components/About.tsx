@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import {
   Code,
@@ -9,177 +11,207 @@ import {
   Award,
   TrendingUp,
   Users,
-  Coffee,
+  Zap,
+  ArrowRight,
+  ShieldCheck,
+  Cpu,
 } from "lucide-react";
 
 const About = () => {
   const stats = [
-    { icon: Code, label: "Projects Completed", value: "10+" },
-    { icon: Users, label: "Happy Clients", value: "10+" },
-    { icon: Coffee, label: "Cups of Coffee", value: "500+" },
-    { icon: TrendingUp, label: "Years Experience", value: "1+" },
+    {
+      icon: TrendingUp,
+      label: "Years Experience",
+      value: "2+",
+      sub: "Production Web Apps",
+      color: "from-blue-500 to-cyan-500",
+    },
+    {
+      icon: Award,
+      label: "Load Time Reduction",
+      value: "40%",
+      sub: "Optimized Performance",
+      color: "from-emerald-500 to-teal-500",
+    },
+    {
+      icon: Zap,
+      label: "Feature Acceleration",
+      value: "25%",
+      sub: "Agile Sprints & Workflows",
+      color: "from-amber-500 to-orange-500",
+    },
+    {
+      icon: Users,
+      label: "Junior Devs Mentored",
+      value: "2+",
+      sub: "Code Reviews & PRs",
+      color: "from-purple-500 to-indigo-500",
+    },
   ];
 
   const highlights = [
     {
       icon: Code,
-      title: "Frontend Development",
-      description: "React, Next.js, TypeScript",
-      color: "from-blue-500 to-blue-600",
-      bgColor: "from-blue-50 to-blue-100",
+      title: "Frontend Engineering",
+      description:
+        "Modern component architecture, SSR & SSG with Next.js, React.js, Tailwind CSS, and Material UI with responsive micro-interactions.",
+      skills: ["Next.js", "React.js", "Tailwind CSS", "Material UI"],
+      accent: "border-blue-500/20 group-hover:border-blue-500/50",
+      glow: "from-blue-500/10 to-transparent",
     },
     {
       icon: Server,
-      title: "Backend Development",
-      description: "Spring Boot, Node.js, APIs",
-      color: "from-purple-500 to-purple-600",
-      bgColor: "from-purple-50 to-purple-100",
+      title: "Backend Services & APIs",
+      description:
+        "Scalable modular backend architecture using NestJS, Node.js, and Spring Boot with granular RBAC authorization and JWT security.",
+      skills: ["NestJS", "Node.js", "Spring Boot", "REST APIs", "RBAC"],
+      accent: "border-purple-500/20 group-hover:border-purple-500/50",
+      glow: "from-purple-500/10 to-transparent",
     },
     {
       icon: Database,
-      title: "Database Design",
-      description: "MySQL, MongoDB",
-      color: "from-indigo-500 to-indigo-600",
-      bgColor: "from-indigo-50 to-indigo-100",
+      title: "Database Architecture",
+      description:
+        "High-performance data modeling, indexing, and query optimization across MongoDB document stores and MySQL relational schemas.",
+      skills: ["MongoDB", "MySQL", "Query Optimization", "Schema Design"],
+      accent: "border-cyan-500/20 group-hover:border-cyan-500/50",
+      glow: "from-cyan-500/10 to-transparent",
     },
     {
       icon: Globe,
-      title: "Cloud & DevOps",
-      description: "AWS, Azure, Docker",
-      color: "from-green-500 to-green-600",
-      bgColor: "from-green-50 to-green-100",
+      title: "Cloud & Production Deployments",
+      description:
+        "Hands-on Linux server administration, NGINX reverse proxies, aaPanel, SSL/TLS, DNS configuration, and Microsoft Azure cloud fundamentals.",
+      skills: ["Linux / NGINX", "Microsoft Azure", "aaPanel", "SSL/TLS"],
+      accent: "border-emerald-500/20 group-hover:border-emerald-500/50",
+      glow: "from-emerald-500/10 to-transparent",
     },
   ];
 
   return (
-    <section id="about" className="py-20 bg-white relative overflow-hidden">
-      {/* Background Decoration */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-blue-100 to-purple-100 rounded-full -translate-y-48 translate-x-48 opacity-30"></div>
-      <div className="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-tr from-indigo-100 to-pink-100 rounded-full translate-y-48 -translate-x-48 opacity-30"></div>
+    <section id="about" className="py-20 lg:py-28 bg-[#090d16] relative overflow-hidden">
+      {/* Background Lighting */}
+      <div className="absolute top-1/2 left-0 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl pointer-events-none -translate-y-1/2" />
+      <div className="absolute bottom-0 right-0 w-96 h-96 bg-purple-600/10 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center bg-blue-50 rounded-full px-6 py-2 mb-6">
-            <Award size={16} className="text-blue-600 mr-2" />
-            <span className="text-sm font-semibold text-blue-600">
-              About Me
-            </span>
+        <div className="text-center max-w-3xl mx-auto mb-16 sm:mb-20">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-mono mb-4">
+            <Cpu size={14} />
+            <span>Profile & Engineering Background</span>
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-            Crafting Digital Excellence
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight mb-4">
+            Crafting Scalable Enterprise Software
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto"></div>
+          <p className="text-slate-400 text-base sm:text-lg leading-relaxed">
+            Delivering robust end-to-end applications across the modern web stack, with a deep focus on performance, security, and developer productivity.
+          </p>
         </div>
 
-        {/* Main Content Grid */}
-        <div className="grid lg:grid-cols-2 gap-16 items-center mb-20">
-          {/* Left Content */}
-          <div className="space-y-8">
-            <div className="space-y-6">
-              <p className="text-lg text-gray-600 leading-relaxed">
-                With a strong foundation in{" "}
-                <span className="font-semibold text-blue-600">Next.js</span>,
-                <span className="font-semibold text-purple-600"> React</span>,
-                and
-                <span className="font-semibold text-indigo-600">
-                  {" "}
-                  Spring Boot
-                </span>
-                , I specialize in creating high-performance web applications
-                that deliver exceptional user experiences.
-              </p>
-
-              <p className="text-lg text-gray-600 leading-relaxed">
-                I'm passionate about clean code, modern development practices,
-                and staying up-to-date with the latest technologies. My goal is
-                to bridge the gap between design and functionality, creating
-                solutions that are both beautiful and powerful.
-              </p>
-
-              <p className="text-lg text-gray-600 leading-relaxed">
-                When I'm not coding, you'll find me exploring new technologies,
-                contributing to open-source projects, or sharing knowledge with
-                the developer community.
-              </p>
-            </div>
-
-            {/* Personal Info */}
-            <div className="bg-gradient-to-r from-gray-50 to-gray-100 rounded-2xl p-6 space-y-4">
-              <div className="flex items-center text-gray-700">
-                <MapPin size={20} className="mr-3 text-blue-600" />
-                <span className="font-medium">Hyderabad, Telangana, India</span>
+        {/* 4 Impact Metric Cards */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-16 sm:mb-20">
+          {stats.map((stat, index) => {
+            const Icon = stat.icon;
+            return (
+              <div
+                key={index}
+                className="glass-card glass-card-hover rounded-2xl p-5 sm:p-6 text-center group relative overflow-hidden"
+              >
+                <div
+                  className={`w-12 h-12 mx-auto mb-3 sm:mb-4 rounded-xl bg-gradient-to-br ${stat.color} p-0.5 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform`}
+                >
+                  <div className="w-full h-full bg-slate-900 rounded-[10px] flex items-center justify-center">
+                    <Icon size={22} className="text-white" />
+                  </div>
+                </div>
+                <div className="text-2xl sm:text-4xl font-black text-white tracking-tight mb-1 group-hover:text-blue-400 transition-colors">
+                  {stat.value}
+                </div>
+                <div className="text-xs sm:text-sm font-semibold text-slate-300 mb-1">
+                  {stat.label}
+                </div>
+                <div className="text-[11px] text-slate-500 hidden sm:block">
+                  {stat.sub}
+                </div>
               </div>
+            );
+          })}
+        </div>
 
-              <div className="flex items-center text-gray-700">
-                <Calendar size={20} className="mr-3 text-purple-600" />
-                <span className="font-medium">
-                  Available for new opportunities
-                </span>
-              </div>
+        {/* Main Content Grid: Bio + 4 Pillars */}
+        <div className="grid lg:grid-cols-12 gap-10 lg:gap-12 items-start mb-16">
+          {/* Left: Professional Bio & Status (Cols 5) */}
+          <div className="lg:col-span-5 space-y-6">
+            <div className="glass-card rounded-2xl p-6 sm:p-8 space-y-5">
+              <h3 className="text-xl font-bold text-white flex items-center gap-2">
+                <ShieldCheck size={22} className="text-blue-400" />
+                <span>End-to-End Delivery</span>
+              </h3>
 
-              <div className="pt-4 border-t border-gray-200">
-                <p className="text-sm text-gray-600 mb-3">Let's connect:</p>
-                <div className="flex space-x-4">
-                  <a
-                    href="mailto:tharunjatoth620@gmail.com"
-                    className="text-blue-600 hover:text-blue-800 font-medium transition-colors duration-200"
-                  >
-                    tharunjatoth620@gmail.com
-                  </a>
+              <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
+                Full Stack Developer with <span className="text-white font-semibold">2+ years of experience</span> building scalable, production-grade web applications using <span className="text-blue-400 font-medium">Next.js, React.js, NestJS, Node.js</span>, and <span className="text-indigo-400 font-medium">Spring Boot</span>.
+              </p>
+
+              <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
+                Skilled in designing secure REST APIs, role-based access control (RBAC), and payment integrations (Razorpay), with hands-on experience across MongoDB, MySQL, and Linux server deployment (NGINX, aaPanel, SSL/TLS).
+              </p>
+
+              <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
+                Proven track record of improving performance, mentoring junior developers, and delivering enterprise platforms end-to-end across frontend, backend, and infrastructure.
+              </p>
+
+              {/* Quick Contact Points */}
+              <div className="pt-4 border-t border-white/[0.08] space-y-3">
+                <div className="flex items-center text-slate-300 text-sm">
+                  <MapPin size={16} className="mr-3 text-blue-400 flex-shrink-0" />
+                  <span>Hyderabad, India</span>
+                </div>
+                <div className="flex items-center text-slate-300 text-sm">
+                  <Calendar size={16} className="mr-3 text-purple-400 flex-shrink-0" />
+                  <span className="text-emerald-400 font-medium flex items-center gap-2">
+                    <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                    Available for New Opportunities
+                  </span>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Right Content - Skills Grid */}
-          <div className="grid grid-cols-2 gap-6">
+          {/* Right: 4 Engineering Pillars (Cols 7) */}
+          <div className="lg:col-span-7 grid sm:grid-cols-2 gap-5">
             {highlights.map((item, index) => {
               const Icon = item.icon;
               return (
                 <div
                   key={index}
-                  className={`bg-gradient-to-br ${item.bgColor} p-8 rounded-2xl text-center hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 group`}
+                  className={`glass-card glass-card-hover rounded-2xl p-6 relative overflow-hidden group border ${item.accent}`}
                 >
                   <div
-                    className={`w-16 h-16 bg-gradient-to-br ${item.color} rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg`}
-                  >
-                    <Icon size={28} className="text-white" />
+                    className={`absolute inset-0 bg-gradient-to-br ${item.glow} opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none`}
+                  />
+
+                  <div className="w-12 h-12 rounded-xl bg-slate-800/80 border border-white/10 flex items-center justify-center mb-4 text-blue-400 group-hover:scale-110 group-hover:text-white group-hover:bg-blue-600 transition-all">
+                    <Icon size={22} />
                   </div>
-                  <h4 className="font-bold text-gray-900 mb-2 text-lg">
+
+                  <h4 className="text-base sm:text-lg font-bold text-white mb-2 group-hover:text-blue-400 transition-colors">
                     {item.title}
                   </h4>
-                  <p className="text-sm text-gray-600 leading-relaxed">
+
+                  <p className="text-xs sm:text-sm text-slate-400 leading-relaxed mb-4">
                     {item.description}
                   </p>
-                </div>
-              );
-            })}
-          </div>
-        </div>
 
-        {/* Stats Section */}
-        <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-3xl p-8 md:p-12 text-white">
-          <div className="text-center mb-12">
-            <h3 className="text-3xl font-bold mb-4">My Journey in Numbers</h3>
-            <p className="text-blue-100 text-lg">
-              Some highlights from my development career
-            </p>
-          </div>
-
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {stats.map((stat, index) => {
-              const Icon = stat.icon;
-              return (
-                <div key={index} className="text-center group">
-                  <div className="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:bg-white/30 transition-all duration-300 group-hover:scale-110">
-                    <Icon size={28} className="text-white" />
-                  </div>
-                  <div className="text-3xl font-bold mb-2 group-hover:scale-110 transition-transform duration-300">
-                    {stat.value}
-                  </div>
-                  <div className="text-blue-100 text-sm font-medium">
-                    {stat.label}
+                  <div className="flex flex-wrap gap-1.5 pt-2 border-t border-white/[0.06]">
+                    {item.skills.map((skill, i) => (
+                      <span
+                        key={i}
+                        className="px-2 py-0.5 rounded-md bg-white/[0.05] text-slate-300 text-[11px] font-mono"
+                      >
+                        {skill}
+                      </span>
+                    ))}
                   </div>
                 </div>
               );
@@ -187,24 +219,29 @@ const About = () => {
           </div>
         </div>
 
-        {/* Call to Action */}
-        <div className="text-center mt-16">
-          <div className="bg-gradient-to-r from-gray-50 to-blue-50 rounded-2xl p-8 md:p-12">
-            <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
-              Ready to bring your ideas to life?
-            </h3>
-            <p className="text-gray-600 text-lg mb-8 max-w-2xl mx-auto">
-              Let's collaborate and create something amazing together. I'm
-              always excited to work on new challenges and innovative projects.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-xl font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-200">
-                Get In Touch
-              </button>
-              <button className="border-2 border-gray-300 text-gray-700 px-8 py-4 rounded-xl font-semibold hover:border-blue-600 hover:text-blue-600 transition-all duration-200">
-                View My Work
-              </button>
-            </div>
+        {/* CTA Bar */}
+        <div className="glass-card rounded-2xl p-8 sm:p-10 text-center relative overflow-hidden border border-blue-500/20">
+          <div className="absolute inset-0 bg-radial-glow pointer-events-none opacity-50" />
+          <h3 className="text-2xl sm:text-3xl font-bold text-white mb-3 relative z-10">
+            Let's Collaborate on Scalable Systems
+          </h3>
+          <p className="text-slate-400 text-sm sm:text-base max-w-2xl mx-auto mb-6 relative z-10">
+            Whether you need a high-performance frontend, a resilient microservices backend, or a secure payment workflow, I'm ready to contribute immediately.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center relative z-10">
+            <a
+              href="#contact"
+              className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white px-7 py-3 rounded-xl font-semibold shadow-lg shadow-blue-600/30 hover:shadow-blue-600/50 hover:-translate-y-0.5 transition-all text-sm"
+            >
+              Get In Touch
+              <ArrowRight size={16} />
+            </a>
+            <a
+              href="#projects"
+              className="inline-flex items-center justify-center gap-2 bg-slate-800/80 hover:bg-slate-700/80 text-slate-200 hover:text-white px-7 py-3 rounded-xl font-semibold border border-white/10 transition-all text-sm"
+            >
+              Explore Projects
+            </a>
           </div>
         </div>
       </div>

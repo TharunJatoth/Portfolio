@@ -5,11 +5,12 @@ import {
   Mail,
   Linkedin,
   Github,
-  Code,
+  Code2,
   Zap,
-  Globe,
-  Heart,
+  Layers,
   ArrowUp,
+  Heart,
+  Terminal,
 } from "lucide-react";
 
 const Footer = () => {
@@ -17,31 +18,50 @@ const Footer = () => {
 
   const socialLinks = [
     {
-      name: "Email",
-      href: "mailto:tharunjatoth620@gmail.com",
-      icon: Mail,
-      color: "from-red-500 to-red-600",
+      name: "GitHub",
+      href: "https://github.com/TharunJatoth",
+      icon: Github,
+      borderHover: "hover:border-violet-500/50 hover:text-violet-400",
     },
     {
       name: "LinkedIn",
       href: "https://linkedin.com/in/tharun-jatoth",
       icon: Linkedin,
-      color: "from-blue-500 to-blue-600",
+      borderHover: "hover:border-blue-500/50 hover:text-blue-400",
     },
     {
-      name: "GitHub",
-      href: "https://github.com/TharunJatoth/tharun",
-      icon: Github,
-      color: "from-gray-700 to-gray-800",
+      name: "Email",
+      href: "mailto:tharunjatoth620@gmail.com",
+      icon: Mail,
+      borderHover: "hover:border-rose-500/50 hover:text-rose-400",
     },
   ];
 
-  const quickLinks = [
+  const navigation = [
     { name: "About", href: "#about" },
+    { name: "Experience", href: "#experience" },
     { name: "Skills", href: "#skills" },
     { name: "Projects", href: "#projects" },
     { name: "Education", href: "#education" },
     { name: "Contact", href: "#contact" },
+  ];
+
+  const techHighlights = [
+    {
+      icon: Code2,
+      title: "Full-Stack Architecture",
+      desc: "Next.js 15, React 19, NestJS, Node.js, Spring Boot",
+    },
+    {
+      icon: Layers,
+      title: "Data & Systems",
+      desc: "MongoDB, MySQL, Redis, REST APIs, Razorpay",
+    },
+    {
+      icon: Zap,
+      title: "Cloud & Reliability",
+      desc: "Linux, NGINX, aaPanel, SSL/TLS, Azure AZ-900",
+    },
   ];
 
   const scrollToTop = () => {
@@ -49,130 +69,106 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-gradient-to-br from-slate-800 via-slate-900 to-slate-900 text-slate-300 relative overflow-hidden">
-      {/* Background Decorations */}
-      <div className="absolute top-0 left-0 w-96 h-96 bg-gradient-to-br from-blue-900/20 to-purple-900/20 rounded-full -translate-y-48 -translate-x-48"></div>
-      <div className="absolute bottom-0 right-0 w-96 h-96 bg-gradient-to-tl from-purple-900/20 to-pink-900/20 rounded-full translate-y-48 translate-x-48"></div>
+    <footer className="bg-[#050810] text-slate-400 border-t border-white/[0.08] relative overflow-hidden">
+      {/* Subtle background glow */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-24 bg-gradient-to-b from-blue-600/5 to-transparent pointer-events-none" />
 
-      <div className="relative z-10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-          <div className="text-center mb-12">
-            {/* Logo/Name */}
-            <div className="mb-8">
-              <h3 className="text-3xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent mb-4">
-                Tharun Jatoth
-              </h3>
-              <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto mb-6"></div>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 relative z-10">
+        {/* Top Summary Row */}
+        <div className="grid lg:grid-cols-12 gap-10 pb-12 border-b border-white/[0.06] items-start">
+          {/* Brand Col */}
+          <div className="lg:col-span-5 space-y-4">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-600 via-indigo-600 to-violet-600 flex items-center justify-center text-white font-black text-lg shadow-lg shadow-blue-500/20">
+                TJ
+              </div>
+              <div>
+                <span className="text-xl font-bold text-white tracking-tight">
+                  Tharun Jatoth
+                </span>
+                <p className="text-xs text-blue-400 font-medium">
+                  Full Stack Developer
+                </p>
+              </div>
             </div>
 
-            {/* CTA Message */}
-            <div className="max-w-2xl mx-auto mb-12">
-              <h4 className="text-2xl font-bold text-white mb-4">
-                Let's Build Something Amazing Together
-              </h4>
-              <p className="text-lg text-slate-400 leading-relaxed">
-                Ready to bring your ideas to life? I'm always excited to work on
-                new projects and collaborate with innovative teams.
-              </p>
-            </div>
+            <p className="text-sm text-slate-400 max-w-md leading-relaxed">
+              Software engineer with 2+ years of production experience architecting scalable Next.js
+              frontends, modular NestJS/Spring Boot backends, and reliable cloud deployments.
+            </p>
 
             {/* Social Links */}
-            <div className="flex justify-center items-center space-x-8 mb-12">
-              {socialLinks.map((link, index) => {
-                const Icon = link.icon;
+            <div className="flex items-center gap-3 pt-2">
+              {socialLinks.map((s, idx) => {
+                const Icon = s.icon;
                 return (
                   <a
-                    key={index}
-                    href={link.href}
-                    target={link.href.startsWith("http") ? "_blank" : "_self"}
-                    rel={
-                      link.href.startsWith("http")
-                        ? "noopener noreferrer"
-                        : undefined
-                    }
-                    className="group relative"
+                    key={idx}
+                    href={s.href}
+                    target={s.href.startsWith("http") ? "_blank" : undefined}
+                    rel={s.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                    aria-label={s.name}
+                    className={`w-10 h-10 rounded-xl bg-white/[0.04] border border-white/[0.08] flex items-center justify-center text-slate-300 transition-all duration-300 ${s.borderHover}`}
                   >
-                    <div
-                      className={`w-16 h-16 bg-gradient-to-br ${link.color} rounded-2xl flex items-center justify-center transform transition-all duration-300 group-hover:scale-110 group-hover:shadow-xl`}
-                    >
-                      <Icon size={24} className="text-white" />
-                    </div>
-                    <span className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      {link.name}
-                    </span>
+                    <Icon size={18} />
                   </a>
                 );
               })}
             </div>
-
-            {/* Skills Summary */}
-            <div className="grid md:grid-cols-3 gap-8 mb-12">
-              <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 border border-slate-700/50">
-                <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center mx-auto mb-4">
-                  <Code size={24} className="text-white" />
-                </div>
-                <h5 className="text-lg font-bold text-white mb-2">
-                  Full Stack Development
-                </h5>
-                <p className="text-slate-400 text-sm">
-                  React, Next.js, Spring Boot, Node.js
-                </p>
-              </div>
-
-              <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 border border-slate-700/50">
-                <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl flex items-center justify-center mx-auto mb-4">
-                  <Globe size={24} className="text-white" />
-                </div>
-                <h5 className="text-lg font-bold text-white mb-2">
-                  Cloud & DevOps
-                </h5>
-                <p className="text-slate-400 text-sm">
-                  AWS, Azure, Docker, Microservices
-                </p>
-              </div>
-
-              <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 border border-slate-700/50">
-                <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-green-600 rounded-xl flex items-center justify-center mx-auto mb-4">
-                  <Zap size={24} className="text-white" />
-                </div>
-                <h5 className="text-lg font-bold text-white mb-2">
-                  Performance Optimization
-                </h5>
-                <p className="text-slate-400 text-sm">
-                  Database tuning, Code optimization
-                </p>
-              </div>
-            </div>
           </div>
 
-          {/* Quick Links */}
-          <div className="text-center mb-12">
-            <h5 className="text-lg font-bold text-white mb-6">
-              Quick Navigation
-            </h5>
-            <div className="flex flex-wrap justify-center gap-6">
-              {quickLinks.map((link, index) => (
-                <a
-                  key={index}
-                  href={link.href}
-                  className="text-slate-400 hover:text-white transition-colors duration-300 font-medium"
+          {/* Core Competencies Cards */}
+          <div className="lg:col-span-7 grid sm:grid-cols-3 gap-4">
+            {techHighlights.map((item, idx) => {
+              const Icon = item.icon;
+              return (
+                <div
+                  key={idx}
+                  className="glass-card rounded-2xl p-4 border border-white/[0.06]"
                 >
-                  {link.name}
-                </a>
-              ))}
-            </div>
+                  <Icon size={20} className="text-blue-400 mb-2" />
+                  <h4 className="text-xs font-bold text-white uppercase tracking-wider mb-1">
+                    {item.title}
+                  </h4>
+                  <p className="text-xs text-slate-400 leading-relaxed">
+                    {item.desc}
+                  </p>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Quick Nav Links */}
+        <div className="py-8 flex flex-wrap items-center justify-between gap-4 border-b border-white/[0.06]">
+          <div className="flex flex-wrap items-center gap-6">
+            {navigation.map((item, idx) => (
+              <a
+                key={idx}
+                href={item.href}
+                className="text-xs sm:text-sm text-slate-400 hover:text-white transition-colors duration-200"
+              >
+                {item.name}
+              </a>
+            ))}
           </div>
 
-          {/* Footer Bottom */}
-          <div className="text-center mt-16 text-sm text-slate-500 border-t border-slate-700/50 pt-8 relative">
-            <p>&copy; {currentYear} Tharun Jatoth. All rights reserved.</p>
-            <button
-              onClick={scrollToTop}
-              className="absolute right-4 top-1/2 -translate-y-1/2 bg-slate-700 hover:bg-slate-600 text-white rounded-full p-2 shadow-lg transition"
-              aria-label="Scroll to Top"
-            >
-              <ArrowUp size={20} />
-            </button>
+          <button
+            onClick={scrollToTop}
+            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-white/[0.04] border border-white/[0.08] text-xs font-semibold text-slate-300 hover:text-white hover:bg-white/[0.08] transition-all cursor-pointer"
+            aria-label="Back to top"
+          >
+            <span>Back to Top</span>
+            <ArrowUp size={14} />
+          </button>
+        </div>
+
+        {/* Bottom Credits */}
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+          <p>© {currentYear} Tharun Jatoth. Crafted for high-performance web experiences.</p>
+          <div className="flex items-center gap-2">
+            <span className="w-2 h-2 rounded-full bg-emerald-400" />
+            <span className="text-slate-400">Available for Opportunities</span>
           </div>
         </div>
       </div>
