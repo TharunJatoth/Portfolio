@@ -249,8 +249,8 @@ const Experience = () => {
                 Connect on LinkedIn
               </a>
               <a
-                href="/Resume.pdf"
-                download
+                href="/Tharun_Jatoth_Resume.pdf"
+                download="Tharun_Jatoth_Resume.pdf"
                 className="inline-flex items-center justify-center gap-2 bg-slate-800/80 hover:bg-slate-700/80 text-slate-200 hover:text-white px-7 py-3 rounded-xl font-semibold border border-white/10 transition-all text-sm"
               >
                 <Download size={16} />

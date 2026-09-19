@@ -86,8 +86,8 @@ const Hero = () => {
             {/* Action Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start items-center mb-10">
               <a
-                href="/Resume.pdf"
-                download
+                href="/Tharun_Jatoth_Resume.pdf"
+                download="Tharun_Jatoth_Resume.pdf"
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-gradient-to-r from-blue-600 via-blue-500 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white px-7 py-3.5 rounded-xl font-semibold shadow-lg shadow-blue-600/30 hover:shadow-blue-600/50 hover:-translate-y-0.5 transition-all text-sm group"
               >
                 <Download size={18} className="group-hover:animate-bounce" />

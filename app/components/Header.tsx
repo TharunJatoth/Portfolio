@@ -92,8 +92,8 @@ const Header = () => {
             {/* CTA Button & Mobile Menu Toggle */}
             <div className="flex items-center space-x-3">
               <a
-                href="/Resume.pdf"
-                download
+                href="/Tharun_Jatoth_Resume.pdf"
+                download="Tharun_Jatoth_Resume.pdf"
                 className="hidden sm:inline-flex items-center bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white px-4 py-2 rounded-xl text-xs font-semibold shadow-lg shadow-blue-600/25 hover:shadow-blue-600/40 hover:-translate-y-0.5 transition-all duration-200"
               >
                 <Download size={14} className="mr-1.5" />
@@ -137,8 +137,8 @@ const Header = () => {
               ))}
               <div className="pt-2">
                 <a
-                  href="/Resume.pdf"
-                  download
+                  href="/Tharun_Jatoth_Resume.pdf"
+                  download="Tharun_Jatoth_Resume.pdf"
                   className="flex items-center justify-center bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-4 py-2.5 rounded-xl font-medium text-sm shadow-lg shadow-blue-600/30"
                 >
                   <Download size={16} className="mr-2" />
