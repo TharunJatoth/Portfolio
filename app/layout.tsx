@@ -22,6 +22,11 @@ export const metadata: Metadata = {
   title: "Tharun Jatoth | Full Stack Developer",
   description:
     "Full Stack Developer with 2+ years of experience building scalable, production-grade web applications using Next.js, React.js, NestJS, Node.js, and Spring Boot.",
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon.svg",
+    apple: "/favicon.svg",
+  },
 };
 
 export default function RootLayout({
